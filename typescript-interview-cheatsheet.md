@@ -1,6 +1,7 @@
-# 🚀 TypeScript Interview Core Concepts
+# 🚀 TypeScript Interview Cheatsheet
 
-Comprehensive summary of **TypeScript fundamentals, advanced types, configuration, and comparisons with JavaScript**.
+A complete reference of **TypeScript interview concepts**, including fundamentals, advanced types, configuration, and comparisons with JavaScript.  
+Includes **examples** for each concept.
 
 ---
 
@@ -15,10 +16,11 @@ Comprehensive summary of **TypeScript fundamentals, advanced types, configuratio
   - [6. Type Guards & Type Checking](#6-type-guards--type-checking)
 - [Modules & Configuration](#modules--configuration)
   - [7. Modules](#7-modules)
-  - [8. tsconfigjson Configuration](#8-tsconfigjson-configuration)
+  - [8. tsconfig.json Configuration](#8-tsconfigjson-configuration)
 - [TypeScript vs JavaScript](#typescript-vs-javascript)
   - [9. Key Differences](#9-key-differences)
-  - [10. TypeScript in Popular Frameworks](#10-typescript-in-popular-frameworks-eg-react)
+  - [10. TypeScript in Popular Frameworks](#10-typescript-in-popular-frameworks)
+- [✅ Quick Interview One-Liners](#-quick-interview-one-liners)
 
 ---
 
@@ -26,20 +28,13 @@ Comprehensive summary of **TypeScript fundamentals, advanced types, configuratio
 
 ### 1. Basic Types & Type Inference
 
-- **Primitive Types**: `string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`.
-- **Arrays**: `number[]` or `Array<number>`.
-- **Tuples**: `[string, number]` → fixed number of elements with known types.
-- **Enums**: 
-  ```ts
-  enum Direction { Up, Down }
-````
-
-For simpler cases, union literal types are preferred.
-
-* **Any vs Unknown**:
-
-  * `any` bypasses type checking.
-  * `unknown` is safer, requires narrowing.
+- **Primitive Types**: `string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`.  
+- **Arrays**: `number[]` or `Array<number>`.  
+- **Tuples**: `[string, number]`.  
+- **Enums**: use sparingly, prefer union literals.  
+- **Any vs Unknown**:  
+  - `any` disables type checking.  
+  - `unknown` is safer (requires narrowing).  
 
 ```ts
 // Tuple
@@ -48,10 +43,10 @@ userProfile = ['Alice', 30, true];
 
 // Any vs Unknown
 let val: unknown = 'hello';
-let str1: string = val as string; // type assertion needed
+let str1: string = val as string; // assertion required
 
 let val2: any = 'world';
-let str3: string = val2; // OK - bypasses checks
+let str2: string = val2; // bypassed checks
 
 // Enum vs Union
 enum Status {
@@ -66,12 +61,8 @@ type StatusUnion = 'LOADING' | 'SUCCESS' | 'FAILURE';
 
 ### 2. Interface vs Type Alias
 
-* **Interfaces** define object shapes, act as contracts, and support declaration merging.
-* **Type aliases** are more versatile: unions, intersections, primitives, tuples.
-* **Use cases**:
-
-  * Interfaces → public APIs and class contracts.
-  * Type aliases → unions, intersections, and non-object types.
+- **Interface**: describes object/class contracts, supports merging.  
+- **Type alias**: more flexible, supports unions, intersections, primitives, tuples.  
 
 ```ts
 // Interface
@@ -79,16 +70,13 @@ interface User {
   name: string;
   age: number;
 }
-
-interface User { id: number; } // merges automatically
+interface User { id: number; } // merges
 
 const john: User = { name: 'John', age: 45, id: 101 };
 
 // Type alias
 type ID = string | number;
 type Status = 'active' | 'inactive';
-
-// Intersection
 type Admin = User & { accessLevel: 'admin' | 'superadmin' };
 ```
 
@@ -96,9 +84,9 @@ type Admin = User & { accessLevel: 'admin' | 'superadmin' };
 
 ### 3. Functions & Generics
 
-* **Function type**: `(name: string) => number`.
-* **Overloading**: multiple call signatures.
-* **Generics**: reusable components with type safety.
+- Function type: `(name: string) => number`.  
+- Overloading: multiple call signatures.  
+- **Generics**: reusable + type-safe.
 
 ```ts
 // Generic function
@@ -115,9 +103,6 @@ class GenericList<T> {
   addItem(item: T) { this.items.push(item); }
   getItems(): T[] { return this.items; }
 }
-
-const stringList = new GenericList<string>();
-stringList.addItem('hello');
 ```
 
 ---
@@ -126,66 +111,58 @@ stringList.addItem('hello');
 
 ### 4. Advanced Types
 
-* **Union**: `string | number`
-* **Intersection**: `A & B`
-* **Literal**: `'success' | 123`
+- **Union**: `string | number`  
+- **Intersection**: `A & B`  
+- **Literal**: `'success' | 123`  
+
+```ts
+type Shape = { x: number } | { y: number };
+type WithId = { id: number } & { createdAt: Date };
+type Status = 'loading' | 'success' | 'error';
+```
 
 ---
 
 ### 5. void vs never
 
-* **`void`**: function returns nothing (`undefined`).
-* **`never`**: function never returns (error, infinite loop).
+- `void`: returns nothing (implicitly `undefined`).  
+- `never`: function never completes (error/infinite loop).  
 
 ```ts
-function logMessage(message: string): void {
-  console.log(message);
-}
+function logMessage(msg: string): void { console.log(msg); }
 
-function throwError(message: string): never {
-  throw new Error(message);
-}
-
-function infiniteLoop(): never {
-  while (true) {}
-}
+function throwError(msg: string): never { throw new Error(msg); }
+function infiniteLoop(): never { while (true) {} }
 ```
 
 ---
 
 ### 6. Type Guards & Type Checking
 
-* `typeof`: primitive type check.
-* `in`: property existence check.
-* `instanceof`: class instance check.
-* `as`: type assertion.
-* `is`: type predicate for custom guards.
+- `typeof`: primitives.  
+- `in`: property existence.  
+- `instanceof`: prototype chain.  
+- `as`: type assertion (compiler-only).  
+- `is`: type predicate (runtime + narrowing).  
 
 ```ts
-// typeof, in, instanceof
+// typeof / in
 function isVehicle(arg: any) {
   if (typeof arg === 'object' && arg !== null) {
-    if ('startEngine' in arg) {
-      console.log('Has startEngine method.');
-    }
+    if ('startEngine' in arg) console.log('Has engine');
   }
 }
 
+// instanceof
 class Car { drive() {} }
 const myCar = new Car();
-if (myCar instanceof Car) { console.log('Instance of Car.'); }
+if (myCar instanceof Car) console.log('Car instance');
 
-// as vs is
-interface Cat { name: string; meow(): void; }
-interface Dog { name: string; bark(): void; }
-
+// is predicate
+interface Cat { meow(): void }
+interface Dog { bark(): void }
 function isCat(animal: Cat | Dog): animal is Cat {
   return (animal as Cat).meow !== undefined;
-}
-
-function speak(animal: Cat | Dog) {
-  if (isCat(animal)) animal.meow();
-  else animal.bark();
 }
 ```
 
@@ -195,16 +172,24 @@ function speak(animal: Cat | Dog) {
 
 ### 7. Modules
 
-* Use `export` and `import`.
-* Module resolution strategies: `node` vs `classic`.
+- Use `export` and `import`.  
+- Resolution strategies: `node` vs `classic`.  
+
+```ts
+// utils.ts
+export function sum(a: number, b: number) { return a + b; }
+
+// app.ts
+import { sum } from './utils';
+```
 
 ---
 
 ### 8. tsconfig.json Configuration
 
-* **Important options**: `target`, `module`, `strict`, `lib`, `jsx`.
-* **strict mode**: recommended for better type safety.
-* **paths**: configure module aliases.
+- **Important options**: `target`, `module`, `strict`, `lib`, `jsx`.  
+- **strict mode** recommended.  
+- **paths** for module aliases.  
 
 ```json
 {
@@ -213,8 +198,6 @@ function speak(animal: Cat | Dog) {
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
       "@utils/*": ["src/utils/*"],
@@ -230,19 +213,19 @@ function speak(animal: Cat | Dog) {
 
 ### 9. Key Differences
 
-* **Type System**: TS is statically typed, JS is dynamic.
-* **Compilation**: TS must be compiled into JS.
-* **OOP**: TS supports modifiers (`public`, `private`, `protected`).
+- **Type system**: static vs dynamic.  
+- **Compilation**: TS → JS.  
+- **OOP**: TS has access modifiers, abstract classes, interfaces.  
 
 ---
 
-### 10. TypeScript in Popular Frameworks (e.g., React)
+### 10. TypeScript in Popular Frameworks
 
-* Prefer **functional components** with hooks.
-* **Class components** are legacy (more verbose, `this` binding issues).
+- React → prefer **functional components with hooks**.  
+- Class components = legacy.  
 
 ```tsx
-// Functional Component
+// Functional React component
 type Props = { initial: number };
 function Counter({ initial }: Props) {
   const [count, setCount] = React.useState(initial);
@@ -250,3 +233,13 @@ function Counter({ initial }: Props) {
 }
 ```
 
+---
+
+# ✅ Quick Interview One-Liners
+
+- **Interface vs Type**: Interface = contracts & merging; Type = unions/primitives.  
+- **Generics**: Reuse logic with type safety.  
+- **`as` vs `is`**: `as` = assertion, `is` = predicate + narrowing.  
+- **`void` vs `never`**: void = returns nothing; never = never returns.  
+- **Enums**: prefer union literals when possible.  
+- **`typeof` / `in` / `instanceof`**: type checks.
