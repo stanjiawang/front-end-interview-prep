@@ -1,5 +1,5 @@
 
-# Webex Web Client – Tech Stack Overview
+# Web Client – Tech Stack Overview
 
 ## 1. Core Framework & Language
 - **React 16.14.0** – Primary UI library.
