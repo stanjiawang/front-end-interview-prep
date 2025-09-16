@@ -155,9 +155,9 @@
 
 ---
 
-## 10) Full CI/CD Flow (Mermaid)
+## 10) Full CI/CD Flow
 
-```mermaid
+```
 flowchart TB
   subgraph PR_CI[Pull Request CI]
     A[Start: PR Opened] --> B[Setup: install, set pending statuses]
