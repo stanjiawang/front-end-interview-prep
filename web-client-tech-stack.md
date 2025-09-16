@@ -35,7 +35,7 @@
 - **Serve** – Local production build preview.
 
 ## 6. Webex SDK & Plugins
-- **@webex SDK modules** – Meetings, Conversation, Calling, Device, Encryption.
+- **@ SDK modules** – Meetings, Conversation, Calling, Device, Encryption.
 - **Internal Webex Plugins** – AI Assistant, LLM, Mercury, Voicea, etc.
 - **Unified Scheduler MFE** – `@webexMFE/unified-web-scheduler-react`.
 
