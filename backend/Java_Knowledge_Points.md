@@ -491,12 +491,4 @@ class Singleton {
 
 ---
 
-## 19) Bridge to Spring Boot (Preview)
-
-### What & How
-- How Java concepts map: OOP → Controllers/Services/Repositories; Exceptions → error responses; Concurrency → async tasks; Records → DTOs.
-
-### Why it matters
-- Smooth transition to REST APIs, JPA, microservices in interviews and on the job.
-```
 
