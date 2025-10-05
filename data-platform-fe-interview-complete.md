@@ -1,16 +1,4 @@
-
----
-title: "Front-End System Design & D3 Visualization Interview Pack (Complete Edition)"
-description: "Comprehensive prep guide for Senior/Staff Front-End Engineers building data-intensive web apps with React, D3, Webpack, and AI data pipelines. Single-file Markdown with inline SVGs (no external assets)."
-date: 2025-10-05
----
-
 # Front-End System Design & D3 Visualization Interview Pack (Complete Edition)
-
-This guide is a **self-contained interview preparation document** for advanced Front-End Engineers working on **data-driven, AI-integrated visualization platforms**.  
-It covers **architecture**, **React + D3 coding**, **data pipelines**, **Webpack 5 setup**, **large-data strategies**, and **interview Q&A with answers**.  
-All visuals are **inline SVGs** — fully compatible with GitHub Markdown rendering. No external files needed.
-
 ---
 
 ## 0) Table of Contents
@@ -29,8 +17,6 @@ All visuals are **inline SVGs** — fully compatible with GitHub Markdown render
 ## 1) High-Level Architecture
 
 ### 1.1 Mermaid Overview
-
-> If GitHub fails to render Mermaid, ensure the code fence begins with ```mermaid and there are **no extra characters** before `flowchart LR`.
 
 ```mermaid
 flowchart LR
