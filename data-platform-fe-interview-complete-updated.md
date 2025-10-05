@@ -1,11 +1,4 @@
-# Data Platform Front-End Engineer Interview Preparation Pack (Updated)
-
-This guide consolidates **React, D3, Webpack, AI-driven data visualization**, and **system design patterns**
-into a single file suitable for senior/staff front-end engineer interview preparation.
-All sections are optimized for GitHub rendering and readability.
-
-> Images in Section 2 use **relative PNG paths** (GitHub-safe). Place the PNGs in the **same folder** as this `.md`.
-
+# Data Platform Front-End Engineer Interview Preparation Pack
 ---
 
 ## 1) Overview
@@ -39,24 +32,26 @@ Below are static previews (PNG). Place these PNGs in the **same folder** as this
 
 ```mermaid
 flowchart LR
-  U[User (Web UI)]
-  FE[React App]
-  BFF[Node/Express BFF]
-  AI[AI Intent Service]
-  DW[(Data Warehouse)]
-  D3[D3 Visualization Layer]
-  CACHE[(Cache)]
-  OBS[(Observability)]
+  U["User (Web UI)"]
+  FE["React App"]
+  BFF["Node/Express BFF"]
+  AI["AI Intent Service"]
+  DW["Data Warehouse"]
+  D3["D3 Visualization Layer"]
+  CACHE["Cache"]
+  OBS["Observability"]
+
   U --> FE
-  FE --> BFF
-  BFF --> AI
-  AI --> BFF
-  BFF --> DW
-  DW --> BFF
-  BFF --> FE
-  FE --> D3
+  FE -->|GET /api/charts| BFF
+  BFF -->|natural language| AI
+  AI -->|SQL / DSL| BFF
+  BFF -->|parameterized SQL| DW
+  DW -->|aggregates| BFF
+  BFF -->|shape + cache| FE
+  FE -->|render SVG| D3
   BFF --> CACHE
   BFF --> OBS
+
 ```
 
 **Notes**
@@ -406,16 +401,3 @@ export function BigTable({ rows }: { rows: any[] }) {
 
 ---
 
-## 8) Recommended Study Roadmap
-
-| Topic | Resources |
-|-------|-----------|
-| React Performance | React Docs (Concurrent Rendering), EpicReact.dev |
-| D3 Advanced | ObservableHQ, “Interactive Data Visualization for the Web” |
-| Webpack 5 | Official Webpack Docs, SurviveJS |
-| System Design for FE | FrontendMasters “Scaling React Apps” |
-| Visualization Patterns | d3js.org, Mike Bostock’s blocks |
-
----
-
-*Last updated: 2025-10-05*
