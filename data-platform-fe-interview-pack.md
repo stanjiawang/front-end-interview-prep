@@ -1,9 +1,3 @@
----
-title: "Data Platform Front-End Interview Pack (Senior/Staff)"
-description: "System design, D3-first visualization architecture, and end-to-end code (React + D3 + Node/Express + AI integration). Includes interview questions across React, Web Perf, APIs, D3, and DevOps."
-date: 2025-10-05
----
-
 # Data Platform Front-End Interview Pack (Senior/Staff)
 
 This single file contains: **system design (AI-driven analytics flow)**, **D3-centric implementation details**, **ready-to-run code samples**, and a **question bank**.  
