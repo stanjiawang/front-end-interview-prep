@@ -1,10 +1,3 @@
----
-title: "React Foundations — Senior Frontend Interview Prep"
-description: "A comprehensive React foundations guide for senior frontend engineers: core concepts, rendering model, hooks, performance, architecture, testing, and ecosystem."
-date: 2025-10-03
-keywords: [React, hooks, state, effects, context, performance, reconciliation, testing, patterns, SSR, RSC, Next.js]
----
-
 # React Foundations — Senior Frontend Interview Prep
 
 > Use this as a *practical handbook* to refresh fundamentals, align on modern best practices, and prepare solid explanations for interviews. Examples default to modern React (v18+) with functional components.
