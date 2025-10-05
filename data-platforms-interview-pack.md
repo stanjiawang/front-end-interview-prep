@@ -1,12 +1,6 @@
----
-title: "Apple ASE Data Platforms — Senior/Staff Front-End Interview Pack"
-description: "System design, architecture diagrams, and end-to-end code examples (React + D3 + Node/Express + AI service integration) aligned to the Apple Data Platforms JD. Includes deep-dive interview questions across stack (React, Web, Build, Testing, Perf, UX, APIs, D3, Docker/K8s)."
-date: 2025-10-05
----
+# Data Platforms — Senior/Staff Front-End Interview Pack
 
-# Apple ASE Data Platforms — Senior/Staff Front-End Interview Pack
-
-This document is a **single-stop prep & demo** aligned to the JD for **Senior / Staff Front End Engineer, Apple Data Platforms (ASE)**.  
+This document is a **single-stop prep & demo** aligned to the JD for **Senior / Staff Front End Engineer**.  
 It covers: **system design (AI-driven analytics flow)**, **production-ready code samples**, **D3 charts**, **testing & performance**, and a **question bank** for the entire stack.
 
 ---
