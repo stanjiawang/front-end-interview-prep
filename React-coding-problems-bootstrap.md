@@ -1,10 +1,3 @@
----
-title: "React Coding Problems — With Bootstrap"
-description: "Hands-on coding problems for senior frontend interviews using React + Bootstrap, with solutions and explanations."
-date: 2025-10-03
-keywords: [React, Bootstrap, coding problems, UI, components, forms, tables, modals]
----
-
 # React Coding Problems — With Bootstrap
 
 > Each exercise includes: **Goal → Constraints → Hints → Solution (React + Bootstrap)**. You can copy-paste solutions into a Vite React app and add Bootstrap via CDN or npm.
