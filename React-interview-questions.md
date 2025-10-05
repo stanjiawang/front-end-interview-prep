@@ -1,10 +1,3 @@
----
-title: "React Interview Questions — Senior Frontend"
-description: "Large set of React interview questions with concise, senior-level answers and code samples."
-date: 2025-10-03
-keywords: [React interview, hooks, Suspense, reconciliation, performance, testing, SSR, patterns, TypeScript]
----
-
 # React Interview Questions — Senior Frontend
 
 > Use this bank to practice *explanations first*, then code. Prioritize clarity, trade-offs, and measurable impact.
