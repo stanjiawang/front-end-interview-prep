@@ -1,9 +1,4 @@
 # 📘 JavaScript 手写函数面试题集 / JS Handwritten Utilities
-
-> 💡 精简重点版（中英双语注释 + 高频函数）  
-> 包含最常考 15+ 函数：函数控制类 / 对象与原型类 / 异步类 / 数组工具类 / 事件系统类。  
-> 所有代码可直接运行、复习或粘贴进项目 `utils` 文件夹。
-
 ---
 
 ## 📑 目录 / Table of Contents
@@ -352,8 +347,3 @@ class EventEmitter {
 ---
 
 # ✅ End of File
-
-> Author: Stan (Jia Wang)  
-> Version: Simplified Bilingual Edition  
-> Purpose: For front-end interview & daily review  
-> GitHub Ready ✅
