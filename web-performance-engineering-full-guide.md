@@ -1,8 +1,4 @@
 # Web Performance Engineering – Principles, Measurement, and Optimization
-
-> Audience: Front-end engineers, performance specialists, and web architects  
-> Purpose: Understand not only how to **test** performance but also how to **improve** it — with a solid grasp of **browser internals**, **network behavior**, and **runtime optimization principles**.
-
 ---
 
 ## Part 1 – Overview & Goals
