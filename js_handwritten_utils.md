@@ -154,22 +154,53 @@ console.log(init()); // 仍返回 42
  * 缓存函数结果以提高性能。
  * Cache function results to avoid recalculation.
  */
-const memoize = (fn) => {
+function memoize(fn) {
   const cache = new Map();
-  return (...args) => {
+
+  return function (...args) {
     const key = JSON.stringify(args);
-    if (cache.has(key)) return cache.get(key);
-    const result = fn(...args);
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+    const result = fn.apply(this, args);
     cache.set(key, result);
     return result;
   };
-};
+}
 
 // ✅ Example
-const slowAdd = (a, b) => { for (let i = 0; i < 1e6; i++); return a + b; };
-const fastAdd = memoize(slowAdd);
-console.log(fastAdd(1, 2)); // computed
-console.log(fastAdd(1, 2)); // cached
+const slowFib = (n) => {
+  console.log("Calculating fib:", n);
+  if (n <= 1) return n;
+  return slowFib(n - 1) + slowFib(n - 2);
+};
+
+const fastFib = memoize(slowFib);
+
+console.log(fastFib(10)); // 会计算
+console.log(fastFib(10)); // 直接缓存返回，无日志输出
+
+Lodash 的 _.memoize 就是这么做的
+function memoize(fn, resolver) {
+  const cache = new Map();
+
+  return function (...args) {
+    const key = resolver ? resolver.apply(this, args) : JSON.stringify(args);
+    if (cache.has(key)) return cache.get(key);
+
+    const result = fn.apply(this, args);
+    cache.set(key, result);
+    return result;
+  };
+}
+
+// Example
+const add = (a, b) => a + b;
+const memoizedAdd = memoize(add, (a, b) => `${a}-${b}`);
+
+console.log(memoizedAdd(1, 2)); // 计算并缓存
+console.log(memoizedAdd(1, 2)); // 从缓存返回
+
 ```
 
 ---
