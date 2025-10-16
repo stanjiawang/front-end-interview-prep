@@ -29,17 +29,45 @@
  * 在连续触发事件时，只执行最后一次。
  * Debounce: Execute only after continuous triggers stop.
  */
-const debounce = (fn, delay) => {
+// ✅ 最适合函数组件 / hooks 环境
+function debounce(fn, delay = 300) {
   let timerId;
+
   return (...args) => {
-    if (timerId) clearTimeout(timerId);
+    clearTimeout(timerId);
     timerId = setTimeout(() => fn(...args), delay);
   };
-};
+}
 
 // ✅ Example
-const onInput = debounce((v) => console.log('Input:', v), 500);
-onInput('a'); onInput('ab'); onInput('abc'); // only "abc"
+function SearchBox() {
+  const handleChange = debounce((e) => {
+    console.log("Search:", e.target.value);
+  }, 500);
+
+  return <input onChange={handleChange} />;
+}
+
+// ✅ 通用写法，可安全用于对象方法 / 类组件
+function debounce(fn, delay = 300) {
+  let timerId;
+
+  return function (...args) {
+    const context = this; // 捕获调用者上下文
+    clearTimeout(timerId);
+    timerId = setTimeout(() => fn.apply(context, args), delay);
+  };
+}
+
+const obj = {
+  value: 42,
+  sayHi() {
+    console.log(this.value);
+  },
+};
+
+obj.debouncedHi = debounce(obj.sayHi, 500);
+obj.debouncedHi(); // ✅ 正常输出 42
 ```
 
 ---
