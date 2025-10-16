@@ -120,20 +120,28 @@ window.addEventListener(
  * 函数只会执行一次，以后调用无效。
  * Execute a function only once.
  */
-const once = (fn) => {
+function once(fn) {
   let called = false;
-  return (...args) => {
+  let result;
+
+  return function (...args) {
     if (!called) {
       called = true;
-      return fn(...args);
+      result = fn.apply(this, args);
     }
+    return result;
   };
-};
+}
 
 // ✅ Example
-const init = once(() => console.log('Initialized'));
-init(); // ✅
-init(); // ❌ ignored
+const init = once(() => {
+  console.log("Initialize something...");
+  return 42;
+});
+
+console.log(init()); // 输出 "Initialize something..." 然后返回 42
+console.log(init()); // 再调用无效，直接返回 42
+console.log(init()); // 仍返回 42
 ```
 
 ---
