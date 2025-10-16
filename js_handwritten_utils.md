@@ -73,6 +73,14 @@ obj.debouncedHi(); // ✅ 正常输出 42
 ---
 
 ## ⚙️ 2. throttle（节流）
+什么是 Throttle（节流）
+
+“节流（throttle）指的是无论事件触发多频繁，
+只在固定时间间隔内执行一次函数。”
+
+适用场景：scroll、resize、mousemove、window.onresize
+
+高频但不希望过度执行的操作
 
 ```js
 /**
@@ -80,27 +88,26 @@ obj.debouncedHi(); // ✅ 正常输出 42
  * 固定时间间隔内只执行一次。
  * Throttle: Execute at most once per given interval.
  */
-const throttle = (fn, delay) => {
+function throttle(fn, delay = 300) {
   let lastTime = 0;
-  let timerId;
-  return (...args) => {
+
+  return function (...args) {
     const now = Date.now();
-    const remaining = delay - (now - lastTime);
-    if (remaining <= 0) {
-      fn(...args);
+
+    if (now - lastTime >= delay) {
       lastTime = now;
-    } else if (!timerId) {
-      timerId = setTimeout(() => {
-        fn(...args);
-        lastTime = Date.now();
-        timerId = null;
-      }, remaining);
+      fn.apply(this, args);
     }
   };
-};
+}
 
 // ✅ Example
-window.addEventListener('scroll', throttle(() => console.log('scroll!'), 1000));
+window.addEventListener(
+  "scroll",
+  throttle(() => {
+    console.log("Scroll event fired!");
+  }, 1000)
+);
 ```
 
 ---
