@@ -1,12 +1,6 @@
 # 03 — Networking and Protocols (HTTP/1.1 → HTTP/2 → HTTP/3, TLS, CORS)
 # 网络与协议详解（HTTP/1.1 → HTTP/2 → HTTP/3、TLS、安全与跨域机制）
 
-> **中英双语完整版 | Detailed Bilingual Guide**  
-> This document explains how browser networking works — from DNS to HTTP/3 and CORS — in both English and Chinese.  
-> 本文深入讲解浏览器的网络机制：从 DNS 到 HTTP/3，再到 CORS 跨域与缓存系统。  
-> Each section contains: English explanation, Chinese explanation, diagrams, and interview templates.  
-> 每一节都包含：英文原理、中文解释、图示、面试口述模板。
-
 ---
 
 ## Table of Contents
