@@ -1,4 +1,4 @@
-# Behavioral Interview Playbook (Complete + TikTok)
+# Behavioral Interview Playbook
 
 ## Table of Contents
 1. [Ownership of a problem not your responsibility](#1-ownership-of-a-problem-not-your-responsibility)
