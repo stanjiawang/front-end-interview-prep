@@ -363,7 +363,7 @@ For me, TikTok Shop feels like the perfect mix — huge impact, fast growth, and
 
 ---
 
-## 15. How to Systematically Approach a Complex Technical Problem
+## 16. How to Systematically Approach a Complex Technical Problem
 
 > As a technical leader, you should **analyze before coding**, and **structure uncertainty into solvable components**.
 
