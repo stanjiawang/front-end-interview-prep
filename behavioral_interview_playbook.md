@@ -16,7 +16,7 @@
 13. [Learning something new quickly](#13-learning-something-new-quickly)
 14. [Why TikTok (Shop)?](#14-why-tiktok-shop)
 15. [Tech Lead Responsibilities](#15-tech-lead-responsibilities)
-16. [How to Systematically Approach a Complex Technical Problem](#16-how-to-systematically-approach-complex-technical-problem)
+16. [How to Systematically Approach a Complex Technical Problem](#16-how-to-systematically-approach-a-complex-technical-problem)
 
 ---
 
