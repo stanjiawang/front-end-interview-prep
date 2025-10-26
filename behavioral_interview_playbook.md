@@ -15,6 +15,7 @@
 12. [Working with unclear requirements](#12-working-with-unclear-requirements)
 13. [Learning something new quickly](#13-learning-something-new-quickly)
 14. [Why TikTok (Shop)?](#14-why-tiktok-shop)
+15. [Tech Lead Responsibilities](#15-tech-lead-responsibilities)
 
 ---
 
@@ -233,3 +234,131 @@ I have around ten years of front-end experience, mostly building large-scale web
 What gives me the most satisfaction is when millions of users can actually see and use what I build. I want them to feel that the product is fast, easy to use, and enjoyable.
 
 For me, TikTok Shop feels like the perfect mix — huge impact, fast growth, and tons of opportunities to make a difference.
+
+
+## 15. Tech Lead Responsibilities
+
+### Step 1: Requirement Clarification
+
+**🎯 Goal:** Ensure complete understanding of business goals, user scenarios, and success metrics.
+
+**Key Actions:**
+- Attend **PRD (Product Requirement Document)** review with PM and Designer.  
+- Identify both **functional** and **non-functional** requirements:
+  - Core features, flows, edge cases.
+  - Performance (e.g., LCP ≤ 2s, TTI ≤ 3s).
+  - Accessibility, i18n/l10n, browser compatibility.
+- Clarify API dependencies (GraphQL / REST / BFF).
+- Identify potential risks or unclear acceptance criteria.
+- ✅ **Deliverable:** Requirement Review Notes.
+
+---
+
+### Step 2: Technical Design & Scoping
+
+**🎯 Goal:** Define architecture, data flow, and tech stack before development begins.
+
+**Key Actions:**
+- Choose rendering strategy: **CSR / SSR / SSG / ISR**.
+- Define **state management** (Redux Toolkit, Recoil, Zustand, etc.).
+- Plan performance optimizations: Code-splitting, Lazy-loading, Virtualization.
+- Define API contract with backend (OpenAPI / GraphQL Schema / Mock server).
+- Review security, auth flow, and caching strategy.
+- Conduct a **Design Review** meeting with stakeholders.
+- ✅ **Deliverables:**
+  - Technical Design Doc (with architecture diagram)
+  - Review approval or comments
+
+---
+
+### Step 3: Task Breakdown & Estimation
+
+**🎯 Goal:** Translate design into clear, traceable development tasks.
+
+**Key Actions:**
+- Break down into feature modules: UI Components / Hooks / API / Routing / State.
+- Estimate time & complexity (T-shirt sizing: S / M / L / XL).
+- Create **Jira / Asana / Notion** task board with ownership.
+- Sync with PM for sprint planning & milestones.
+- ✅ **Deliverables:**
+  - Sprint Board
+  - Effort Estimation Document
+
+---
+
+### Step 4: Implementation & Code Review
+
+**🎯 Goal:** Deliver high-quality, maintainable, and consistent code.
+
+**Key Actions:**
+- Follow Git branching model: `feature/<module-name>`.
+- Enforce coding standards (ESLint, Prettier, TypeScript strict mode).
+- Write unit tests (Jest, RTL) and E2E tests (Playwright, Cypress).
+- Conduct thorough **Code Reviews**:
+  - Maintainability and scalability
+  - Performance and security
+  - Consistency with design and UX
+- ✅ **Deliverables:**
+  - Merged PR through CI/CD pipeline
+  - Review checklist completed
+
+---
+
+### Step 5: Testing & Quality Assurance
+
+**🎯 Goal:** Validate stability, performance, and accessibility before release.
+
+**Key Actions:**
+- Run smoke tests, regression tests, and integration tests.
+- Measure Lighthouse metrics and fix regressions.
+- Perform **A11y testing** (Screen reader, Keyboard navigation).
+- Conduct **UAT (User Acceptance Testing)** with PM/QA.
+- ✅ **Deliverables:**
+  - QA Report / Bug List
+  - Accessibility Compliance Report
+
+---
+
+### Step 6: Release & Monitoring
+
+**🎯 Goal:** Deploy safely and monitor stability post-launch.
+
+**Key Actions:**
+- Automate build & deploy (GitHub Actions / Jenkins / GitLab CI).
+- Manage environments: Dev → Staging → Production.
+- Use feature flags, A/B testing, or phased rollout.
+- Monitor with Sentry, Datadog, Grafana, or custom dashboards.
+- Track real-user performance (RUM) metrics post-deployment.
+- ✅ **Deliverables:**
+  - Release Notes
+  - Monitoring Dashboard / Alert setup
+
+---
+
+### Step 7: Retrospective & Continuous Improvement
+
+**🎯 Goal:** Identify lessons learned and process improvements.
+
+**Key Actions:**
+- Conduct a post-release retrospective with team.
+- Discuss “What went well / What didn’t / What to improve”.
+- Identify automation or documentation gaps.
+- Update internal playbooks or templates for future reuse.
+- ✅ **Deliverables:**
+  - Retrospective Doc
+  - Action Items List
+
+---
+
+### 🧠 Tech Lead Responsibilities
+
+| Dimension | Responsibilities |
+|------------|------------------|
+| **Technical Direction** | Architecture decisions, performance budgets, component reusability |
+| **Team Collaboration** | Mentoring, code review quality, conflict resolution |
+| **Cross-Function Communication** | Sync with PM, Design, Backend, QA |
+| **Quality Control** | Maintain test coverage, performance, and accessibility KPIs |
+| **Risk Management** | Detect scope creep, dependency delays, or bottlenecks early |
+
+---
+
