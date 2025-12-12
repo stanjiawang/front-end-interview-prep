@@ -1,7 +1,4 @@
 # Behavioral Stories & Tech Lead Responsibilities
-
-> Drafted for interview practice – structured in STAR format with concise talking points plus full story text.
-
 ---
 
 ## Table of Contents
