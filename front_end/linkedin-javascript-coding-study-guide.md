@@ -1,4 +1,4 @@
-# LinkedIn JavaScript Coding Study Guide
+# JavaScript Coding Study Guide
 
 An interview-focused reference covering JavaScript fundamentals, common utility implementations, DOM problems, algorithms, and infinite scrolling.
 
