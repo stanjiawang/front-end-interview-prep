@@ -1,9 +1,5 @@
 # Pragmatic UI Interview Study Guide
 
-This guide is organized for the one-hour **Pragmatic Coding for UI** round. The first five exercises come from the recruiter’s recent question bank and should be practiced first.
-
-> Default implementation style: semantic HTML, focused CSS, and framework-free JavaScript. Build the smallest working version first, then add accessibility, asynchronous states, performance, and cleanup.
-
 ## Table of Contents
 
 1. [What the Round Evaluates](#round-evaluation)
