@@ -1,4 +1,4 @@
-# LinkedIn JavaScript Coding Study Guide
+# JavaScript Coding Study Guide
 
 An interview-focused reference organized by source and priority. All material from the previous guide is preserved; recruiter-highlighted questions have been added at the front.
 
