@@ -1,4 +1,4 @@
-# LinkedIn Pragmatic UI Interview Study Guide
+# Pragmatic UI Interview Study Guide
 
 This guide is organized for the one-hour **Pragmatic Coding for UI** round. The first five exercises come from the recruiter’s recent question bank and should be practiced first.
 
