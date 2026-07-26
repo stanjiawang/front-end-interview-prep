@@ -1,9 +1,5 @@
 # JavaScript Coding Study Guide
 
-An interview-focused reference organized by source and priority. All material from the previous guide is preserved; recruiter-highlighted questions have been added at the front.
-
-> Priority order: recruiter prep-call samples, previously reported LinkedIn questions, predicted/high-probability questions, then supporting drills. Code favors clear, explainable interview solutions, with production limitations called out explicitly.
-
 ## Table of Contents
 
 1. [Recruiter Prep-Call Sample Questions](#recruiter-prep)
