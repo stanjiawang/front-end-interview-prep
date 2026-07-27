@@ -1,15 +1,4 @@
-# LinkedIn Pragmatic Coding for UI — Source-Aligned Study Guide
-
-This guide contains compact, framework-free solutions for the LinkedIn **Pragmatic Coding for UI** round.
-
-The implementations follow two evidence levels:
-
-1. **Recruiter recent-question notes** — Autocomplete, Accordion, Apple-style Calendar, LinkedIn Post, and Apple-style Calculator.
-2. **Public candidate reports** — People You May Know, Tooltip, and Infinite Scroll.
-
-> Important: LinkedIn has not published complete official prompts or the screenshots used in these exercises. Where a screenshot is unavailable, this guide states the minimum assumption explicitly instead of presenting an invented detail as part of the original question.
-
-All examples are designed for separate CoderPad HTML, CSS, and JavaScript panels. Do not paste the labels `HTML`, `CSS`, or `JavaScript` into the panels.
+# Pragmatic Coding for UI
 
 ## Table of Contents
 
