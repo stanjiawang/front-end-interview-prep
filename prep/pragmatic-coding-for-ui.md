@@ -43,8 +43,6 @@
    - [Infinite Scroll HTML](#infinite-scroll-html)
    - [Infinite Scroll CSS](#infinite-scroll-css)
    - [Infinite Scroll JavaScript](#infinite-scroll-javascript)
-10. [Source Notes](#source-notes)
-
 ---
 
 <a id="prompt-fidelity"></a>
@@ -2827,28 +2825,3 @@ Interview summary:
 > The loading and done flags prevent duplicate or unnecessary requests. A throttled passive scroll listener checks the distance to the document bottom. Each successful page is appended through a document fragment.
 
 ---
-
-<a id="source-notes"></a>
-## 10. Source Notes
-
-### Recruiter recent-question notes
-
-The following exercise descriptions come from the recruiter prep-call notes supplied for this study guide:
-
-- Autocomplete
-- Accordion
-- Apple Calendar widget
-- LinkedIn Post
-- Apple Calculator
-
-These are the highest-priority exercises because they were described as recently used questions. The exact screenshots were not available.
-
-### Public candidate reports
-
-- [WDE 2 LinkedIn Front End — People You May Know and Tooltip](https://leetcode.com/discuss/post/1062190/WDE-2-LinkedIn-%28-Front-End-%29/)
-- [LinkedIn Phone Screen — Infinite Scroll](https://leetcode.com/discuss/interview-question/349527/linkedin-phone-screen-infinite-scroll-fibonacci)
-- [LinkedIn FEE 2022 — Autocomplete, Calculator, and Infinite Scroll rounds](https://leetcode.com/discuss/interview-experience/2014354/linkedin-fee-bangalore-april-2022-reject)
-- [Glassdoor — People You May Know HTML/CSS widget](https://www.glassdoor.sg/Interview/Build-out-the-basic-HTML-and-CSS-required-to-build-a-People-You-May-Know-widget-based-on-a-screenshot-QTN_937493.htm)
-- [Frontend Interview Handbook — LinkedIn UI questions](https://www.frontendinterviewhandbook.com/companies/linkedin-front-end-interview-questions)
-
-Candidate reports describe past experiences, not guaranteed future prompts. During the interview, the supplied screenshot, API contract, and interviewer clarifications override this guide.
