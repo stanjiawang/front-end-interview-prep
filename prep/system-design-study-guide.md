@@ -1,18 +1,4 @@
-# LinkedIn Staff Frontend System Design and Architecture
-
-An English-only, interview-ready study guide for the **Software Design & Architecture** round.
-
-This guide is intentionally opinionated about process but careful about prompt fidelity:
-
-- **Recruiter-confirmed:** LinkedIn Messaging Client.
-- **Recruiter and publicly reported:** Search / Autocomplete.
-- **Recruiter-confirmed UI prompt, expanded deliberately for design practice:** LinkedIn Post and Feed.
-- **Publicly reported:** Real-Time User Join Blips on a World Map.
-- **Publicly reported but underspecified:** LinkedIn Suggestion Widget.
-
-Where a public report does not contain a requirement, the guide labels it as a clarification or a proposed scope. Do not present a proposed scope as if it were part of the original prompt.
-
----
+# System Design and Architecture
 
 ## Table of Contents
 
