@@ -1,4 +1,4 @@
-# Craftsmanship Preparation
+# Craftsmanship
 
 ## Table of Contents
 
