@@ -1,6 +1,5 @@
-# LinkedIn Staff Frontend — Host Manager Interview Preparation
+# Manager Interview Preparation
 
-This guide contains the ten core Host Manager questions, interview-ready answers, memory structures, Staff-level signals, and likely follow-up questions.
 
 ## Table of Contents
 
