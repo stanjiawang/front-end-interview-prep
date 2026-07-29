@@ -1,4 +1,4 @@
-# LinkedIn Staff Frontend — Craftsmanship Preparation
+# Craftsmanship Preparation
 
 ## Table of Contents
 
