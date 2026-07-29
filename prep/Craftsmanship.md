@@ -216,23 +216,23 @@
 
 ### Interview-ready answer
 
-> As a staff-level engineer, I think maintaining a high-quality bar is not about personally reviewing every line of code. It is about creating an environment where engineers understand the standards and have the tools and support to meet them.
+> As a staff-level engineer, I think maintaining a high-quality bar is not about personally reviewing every line of code. It is about creating an environment where engineers understand the standards and have the tools and support to meet the standards.
 >
 > I usually focus on four areas.
 >
-> First, **clear engineering standards**. I help establish consistent practices around coding style, component design, testing strategy, documentation, and code-review expectations. This gives engineers a clear understanding of what good quality looks like.
+> First, **clear engineering standards**. I help establish consistent best practices around coding style, component design, testing strategy, and code-review expectations. This gives engineers a clear understanding of what good quality looks like.
 >
 > Second, **good onboarding and mentorship**. When a new engineer joins, I help them understand not only the codebase, but also the engineering decisions behind it. I usually start with the project structure, development workflow, testing approach, and common patterns. Then I gradually increase their ownership from small fixes to feature development and cross-functional discussions.
 >
-> Third, **fast feedback loops**. Code reviews, automated testing, linting, and CI checks should help engineers improve quickly. The goal is not to block people, but to catch issues early when they are easier to fix.
+> Third, **fast feedback loops**. The code reviews, automated testing, linting, and CI checks should help engineers improve quickly. The goal is not to block people, but to catch issues early when they are easier to fix.
 >
 > Fourth, **creating ownership**. I do not want junior engineers to only follow instructions. I try to help them understand the product context, make technical decisions, and become independent contributors over time.
 >
 > At Cisco, I helped onboard engineers to the Webex web client. I walked them through our development workflow, internal documentation, React, TypeScript, Redux, and the overall project architecture. I started them with smaller bug fixes, followed by feature work and cross-functional discussions. This helped them gradually become independent contributors.
 >
-> At StartNation, I also helped establish frontend practices and workflows for junior developers while leading frontend architecture improvements.
+> At StartNation, I also helped establish frontend best practices and workflows for junior developers while leading frontend architecture improvements.
 >
-> I think a strong engineering culture is one where quality is everyone's responsibility, not something owned only by senior engineers.
+> I think a strong engineering culture is where quality is everyone's responsibility, not something owned only by senior engineers.
 >
 > The best outcome of mentoring is that engineers gain enough confidence and understanding to make good decisions independently and eventually help others grow as well.
 
