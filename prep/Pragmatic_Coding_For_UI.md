@@ -691,6 +691,13 @@ accordion.addEventListener(
                 "aria-expanded",
             ) === "true";
 
+        accordion.querySelectorAll("[data-accordion-trigger]")
+            .forEach((otherTrigger) => {
+               if (otherTrigger !== trigger) {
+               setExpanded(otherTrigger, false);
+             }
+           });
+
         trigger.setAttribute(
             "aria-expanded",
             String(!isExpanded),
