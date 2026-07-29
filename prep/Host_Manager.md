@@ -3,20 +3,24 @@
 
 ## Table of Contents
 
-1. [H1 — Walk Me Through Your Background](#h1--walk-me-through-your-background)
-2. [H2 — Why Are You Looking for a Change, and Why LinkedIn?](#h2--why-are-you-looking-for-a-change-and-why-linkedin)
-3. [H3 — What Does Staff-Level Engineering Mean to You?](#h3--what-does-staff-level-engineering-mean-to-you)
-4. [H4 — Tell Me About Your Most Significant Accomplishment](#h4--tell-me-about-your-most-significant-accomplishment)
-5. [H5 — How Do You Solve an Ambiguous or Complex Problem?](#h5--how-do-you-solve-an-ambiguous-or-complex-problem)
-6. [H6 — Tell Me About a Difficult Decision or Disagreement](#h6--tell-me-about-a-difficult-decision-or-disagreement)
-7. [H7 — Tell Me About a Time You Delivered Under Constraints](#h7--tell-me-about-a-time-you-delivered-under-constraints)
-8. [H8 — Tell Me About a Time You Demonstrated Ownership](#h8--tell-me-about-a-time-you-demonstrated-ownership)
-9. [H9 — How Do You Develop People and Multiply Team Effectiveness?](#h9--how-do-you-develop-people-and-multiply-team-effectiveness)
-10. [H10 — Tell Me About a Failure, Difficult Feedback, or an Area of Growth](#h10--tell-me-about-a-failure-difficult-feedback-or-an-area-of-growth)
+1. [**Background** — Walk Me Through Your Background](#background)
+2. [**Motivation** — Why Are You Looking for a Change, and Why LinkedIn?](#motivation)
+3. [**Staff-Level Engineering** — What Does Staff-Level Engineering Mean to You?](#staff-level-engineering)
+4. [**Significant Accomplishment** — Tell Me About Your Most Significant Accomplishment](#significant-accomplishment)
+5. [**Ambiguous Problems** — How Do You Solve an Ambiguous or Complex Problem?](#ambiguous-problems)
+6. [**Difficult Decisions** — Tell Me About a Difficult Decision or Disagreement](#difficult-decisions)
+7. [**Delivery Under Constraints** — Tell Me About a Time You Delivered Under Constraints](#delivery-under-constraints)
+8. [**Ownership** — Tell Me About a Time You Demonstrated Ownership](#ownership)
+9. [**Developing People** — How Do You Develop People and Multiply Team Effectiveness?](#developing-people)
+10. [**Failure and Growth** — Tell Me About a Failure, Difficult Feedback, or an Area of Growth](#failure-and-growth)
+11. [Final Review: Question-to-Story Map](#final-review)
+12. [Final Interview Reminders](#final-reminders)
 
 ---
 
-## H1 — Walk Me Through Your Background
+<a id="background"></a>
+
+## **Background** — Walk Me Through Your Background
 
 ### Interview-ready answer
 
@@ -86,9 +90,13 @@ Focus on scope, ownership, collaboration, and impact—not another list of techn
 
 > The scope kept growing. Webex changed significantly over those years, so I continued encountering new product, architecture, and leadership challenges rather than doing the same work repeatedly.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H2 — Why Are You Looking for a Change, and Why LinkedIn?
+<a id="motivation"></a>
+
+## **Motivation** — Why Are You Looking for a Change, and Why LinkedIn?
 
 ### Interview-ready answer
 
@@ -144,9 +152,13 @@ Strong technical and experience match
 
 > I am most interested in modern frontend architecture, large-scale web applications, performance, accessibility, and AI-powered user experiences. I am especially interested in using AI to improve real workflows rather than adding it without a clear user need.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H3 — What Does Staff-Level Engineering Mean to You?
+<a id="staff-level-engineering"></a>
+
+## **Staff-Level Engineering** — What Does Staff-Level Engineering Mean to You?
 
 ### Interview-ready answer
 
@@ -209,9 +221,13 @@ Strong technical and experience match
 
 > I look at the scope and durability of the impact. If my work improves multiple teams, shared systems, technical direction, or engineering practices—and helps others become more effective—that is a strong Staff-level signal.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H4 — Tell Me About Your Most Significant Accomplishment
+<a id="significant-accomplishment"></a>
+
+## **Significant Accomplishment** — Tell Me About Your Most Significant Accomplishment
 
 ### Interview-ready answer
 
@@ -296,9 +312,13 @@ About 10 seconds → under 3 seconds
 
 > I framed it as a shared product and system problem rather than a frontend request. The existing design hurt both user experience and backend resource usage, so the API changes created value for both sides.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H5 — How Do You Solve an Ambiguous or Complex Problem?
+<a id="ambiguous-problems"></a>
+
+## **Ambiguous Problems** — How Do You Solve an Ambiguous or Complex Problem?
 
 ### Interview-ready answer
 
@@ -380,9 +400,13 @@ Broad and durable improvement
 
 > I focus on whether the major risks and trade-offs are understood. For reversible decisions, I prefer moving quickly and validating with an experiment. For difficult-to-reverse decisions, I spend more time reducing uncertainty and aligning stakeholders.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H6 — Tell Me About a Difficult Decision or Disagreement
+<a id="difficult-decisions"></a>
+
+## **Difficult Decisions** — Tell Me About a Difficult Decision or Disagreement
 
 ### Interview-ready answer
 
@@ -449,9 +473,13 @@ Preserved design intent
 
 > I changed the direction from a true pop-out browser window to an in-page floating panel by explaining the web constraints and demonstrating a working alternative.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H7 — Tell Me About a Time You Delivered Under Constraints
+<a id="delivery-under-constraints"></a>
+
+## **Delivery Under Constraints** — Tell Me About a Time You Delivered Under Constraints
 
 ### Interview-ready answer
 
@@ -526,9 +554,13 @@ Delivered on time with stable quality
 
 > I try not to say no to the user goal. In this case, I said no to a high-risk first-release scope and proposed a safer sequence for reaching the complete goal.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H8 — Tell Me About a Time You Demonstrated Ownership
+<a id="ownership"></a>
+
+## **Ownership** — Tell Me About a Time You Demonstrated Ownership
 
 ### Interview-ready answer
 
@@ -603,9 +635,13 @@ Use the missing end-to-end coverage story. Explain the release pressure, the val
 
 > It means understanding real user impact, detecting regressions quickly, and recovering safely. That includes error tracking, real-user performance metrics, feature flags, dashboards, and rollback plans.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H9 — How Do You Develop People and Multiply Team Effectiveness?
+<a id="developing-people"></a>
+
+## **Developing People** — How Do You Develop People and Multiply Team Effectiveness?
 
 ### Interview-ready answer
 
@@ -671,9 +707,13 @@ Engineers who grow other engineers
 
 > I avoid becoming the only source of context. I document important decisions, involve other engineers early, create examples, share ownership, and ask questions that help people reach decisions rather than making every decision myself.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
-## H10 — Tell Me About a Failure, Difficult Feedback, or an Area of Growth
+<a id="failure-and-growth"></a>
+
+## **Failure and Growth** — Tell Me About a Failure, Difficult Feedback, or an Area of Growth
 
 ### Interview-ready answer
 
@@ -758,22 +798,32 @@ Use the missing end-to-end coverage story:
 4. Explain the added coverage or process improvement.
 5. End with how the experience changed your release discipline.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
+
+<a id="final-review"></a>
 
 ## Final Review: Question-to-Story Map
 
 | Question | Primary story |
 |---|---|
-| H1 — Background | Career progression and Webex scope |
-| H2 — Why change / Why LinkedIn | Cisco restructuring, next-stage impact, LinkedIn mission |
-| H3 — Staff-level scope | Performance architecture, shared components, mentoring |
-| H4 — Major accomplishment | Webex messaging performance redesign |
-| H5 — Ambiguous problem | Accessibility strategy through shared components |
-| H6 — Influence / disagreement | Desktop pop-out request versus web floating panel |
-| H7 — Delivery under constraints | Lobby release and deferred breakout-session support |
-| H8 — Ownership / operations | Performance redesign, feature flags, and monitoring |
-| H9 — Developing people | Cisco onboarding and StartNation mentoring |
-| H10 — Failure / growth | Becoming more proactive in technical communication |
+| Background | Career progression and Webex scope |
+| Why change / Why LinkedIn | Cisco restructuring, next-stage impact, LinkedIn mission |
+| Staff-level scope | Performance architecture, shared components, mentoring |
+| Major accomplishment | Webex messaging performance redesign |
+| Ambiguous problem | Accessibility strategy through shared components |
+| Influence / disagreement | Desktop pop-out request versus web floating panel |
+| Delivery under constraints | Lobby release and deferred breakout-session support |
+| Ownership / operations | Performance redesign, feature flags, and monitoring |
+| Developing people | Cisco onboarding and StartNation mentoring |
+| Failure / growth | Becoming more proactive in technical communication |
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="final-reminders"></a>
 
 ## Final Interview Reminders
 
@@ -785,3 +835,5 @@ Use the missing end-to-end coverage story:
 - Do not present Staff leadership as having authority over every decision.
 - Stay close to the code, but show impact beyond your own code.
 - End each story with what changed—for the product, system, team, or your own judgment.
+
+[Back to Table of Contents](#table-of-contents)
