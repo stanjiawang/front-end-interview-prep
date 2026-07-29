@@ -27,15 +27,13 @@
 >
 > First, **user experience**. The UI should be functionally correct, responsive, accessible, secure, and visually consistent. For important user flows, I also look at metrics such as page-load time, interaction latency, JavaScript error rate, and task completion.
 >
-> Second, **engineering quality**. The application should have clear component boundaries, predictable state management, stable API contracts, and the right level of automated testing. The code should be easy to understand and safe to change. Reusable components and design patterns are valuable, but only when they reduce duplication and maintenance cost.
+> Second, **engineering quality**. The application should have clear component boundaries, predictable state management, stable API contracts, and the right level of automated testing. The code should be easy to understand and safe to change. 
 >
 > Third, **operational quality**. A system needs observability, real-user monitoring, safe rollout plans, and a clear rollback path. We should be able to detect problems quickly and recover without creating a large user impact.
 >
 > Finally, **sustainability**. The system should have a reasonable total cost of ownership. Technical debt should be controlled, and the team should still be able to deliver new features with good development velocity as the product grows.
 >
-> I do not think quality means perfection. The quality bar should match the risk and user impact. A critical workflow needs stronger testing, monitoring, and release controls than a low-risk UI change.
->
-> For example, on Webex, we reduced the initial load time from about ten seconds to under three seconds. We used staged loading, pagination, list virtualization, and more efficient Redux state handling. We also used feature flags and Grafana metrics during the rollout. In another project, we fixed accessibility issues in the shared component library, so one improvement benefited many product surfaces.
+> For example, on Webex, we reduced the initial load time from about ten seconds to under three seconds. We used staged loading, pagination, list virtualization, and more efficient Redux state handling. We also used feature flags and Grafana metrics during the rollout.
 >
 > That is how I define quality: a strong user experience, a maintainable frontend architecture, reliable operations, and a system that the team can continue to evolve efficiently.
 
@@ -51,7 +49,7 @@
 
 #### How does the quality bar change based on risk?
 
-> I consider user impact, blast radius, reversibility, and the cost of failure. A meeting-join flow, payment flow, authentication change, or shared component needs stronger testing and rollout controls. A small, reversible visual change can use a lighter process.
+> I consider user impact, reversibility, and the cost of failure. A meeting-join flow, payment flow, authentication change, or shared component needs stronger testing and rollout controls. A small, reversible visual change can use a lighter process.
 
 #### How do operations, maintenance, cost, and velocity affect quality?
 
@@ -82,25 +80,23 @@
 >
 > First, **correctness and risk**. I check whether the implementation meets the requirements and handles important edge cases. For frontend code, I also look at state transitions, async behavior, API error handling, accessibility, performance, security, and possible regressions.
 >
-> Second, **maintainability**. I look at whether the component boundaries and data flow are clear. The naming should explain the intent, and the code should be easy to test and modify later. I also check whether a new abstraction creates real reuse or only adds unnecessary complexity.
+> Second, **maintainability**. I look at whether the component boundaries and data flow are clear. The naming should explain the intent, and the code should be easy to test and modify later.
 >
-> Third, **knowledge sharing and collective ownership**. A good review helps more engineers understand the architecture and the reasoning behind important decisions. This reduces the bus factor and makes the codebase easier for the whole team to maintain.
+> Third, **knowledge sharing and collective ownership**. A good review helps more engineers understand the architecture and the reason behind important decisions. This makes the codebase easier for the whole team to maintain.
 >
 > Fourth, **mentoring**. When I suggest a change, I try to explain why, not only what to change. I also separate blocking issues from optional suggestions. This makes the discussion clearer and more respectful.
 >
-> I believe automated tools should handle mechanical checks. ESLint, Prettier, TypeScript, unit tests, end-to-end tests, and CI should catch formatting issues, type errors, and basic regressions. Human reviewers should focus on engineering judgment, such as architecture, trade-offs, edge cases, and long-term maintenance.
+> I believe automated tools have already handled mechanical checks. ESLint, Prettier, TypeScript, unit tests, end-to-end tests, and CI should catch formatting issues, type errors, and basic regressions. Human reviewers should focus on engineering judgment, such as architecture, trade-offs, edge cases, and long-term maintenance.
 >
 > AI is also changing the code-review process. Engineers can now generate code and create pull requests much faster, so review capacity can become a bottleneck. I think AI-assisted review can be useful as a first pass. It can summarize a large diff, identify common bugs, suggest missing tests, and check known coding patterns.
 >
-> But I would not use AI review as a replacement for human review. AI may not understand the full product context, architectural intent, or business risk. It can also produce confident but incorrect suggestions. A human reviewer still needs to validate the design, security impact, user experience, and whether the author truly understands the generated code.
+> But I would not use AI review as a replacement for human review. AI may not understand the full product context, architectural intent, or business risk. It can also produce confident but incorrect suggestions. A human reviewer still needs to validate the design, security impact, user experience, and whether the engineer truly understands the AI generated code.
 >
 > I also prefer small and focused pull requests. They are easier to understand, test, and review. If a change introduces a new architecture or affects multiple teams, I prefer to discuss the design before a large amount of code is written.
 >
 > The review depth should match the risk and blast radius. A critical user flow or a shared component needs a higher review bar than a small visual change. Clear standards, examples, automation, and shared context also help more engineers review confidently.
 >
-> One example from Webex was improving our CI feedback loop. ESLint and Stylelint were running on the build server after every commit, which created long queues and delayed merges. I introduced Husky and lint-staged so those checks ran locally before commit. That gave developers faster feedback and allowed CI and reviewers to focus on more meaningful engineering issues.
->
-> We also applied a stronger review standard to shared UI components because one change could affect many product surfaces. My work included modularizing UI into a shared React component library and improving release quality with Jest and Playwright coverage.
+> One example from Webex was improving our CI feedback loop. ESLint and Stylelint were running on the build server after every commit, which created long queues and delayed merges. I introduced Husky and lint-staged so those checks ran locally before commit. This gave developers faster feedback and allowed CI and reviewers to focus on more meaningful engineering issues.
 >
 > So for me, an effective code review improves correctness, maintainability, knowledge sharing, and engineering judgment, while still keeping development velocity healthy.
 
@@ -108,11 +104,11 @@
 
 #### What value does code review provide beyond finding bugs?
 
-> It spreads architectural knowledge, improves consistency, documents decision-making, supports mentoring, and creates collective ownership. It is also a place to examine trade-offs that automated checks cannot evaluate.
+> It spreads architectural knowledge, improves consistency, documents decision-making, supports mentoring, and creates collective ownership.
 
 #### How do you keep code review from becoming a bottleneck?
 
-> I prefer small pull requests, clear ownership, documented standards, and fast automated checks. Large architectural decisions should happen in a design review before implementation. I also separate blocking issues from optional suggestions so the author knows what is required.
+> I prefer small pull requests, clear ownership, documented standards, and fast automated checks. Large architectural decisions should happen in a design review before implementation. I also separate blocking issues from optional suggestions so the engineer knows what is required.
 
 #### How do you handle a code-review disagreement?
 
@@ -124,7 +120,7 @@
 
 #### Can AI replace human code review?
 
-> No. AI can provide a useful first pass, especially for summaries, common defects, and missing tests. Human review is still needed for product context, architectural intent, business risk, security, accessibility, and accountability.
+> No. AI can provide a useful first pass, especially for summaries, common defects, and missing tests. Human review is still needed for product context, architectural intent, business risk, security and accessibility.
 
 #### How should teams handle AI-generated code?
 
@@ -157,7 +153,7 @@
 >
 > First, **unit tests**. I use them for isolated logic, utilities, state transformations, and components with complex behavior. They are fast and give developers quick feedback during development.
 >
-> Second, **integration tests**. These validate that different parts work together correctly, such as components interacting with state management, APIs, or shared libraries.
+> Second, **integration tests**. It will validate that different parts work together correctly, such as components interacting with state management, APIs, or shared libraries.
 >
 > Third, **end-to-end tests**. I use them for critical user journeys, such as login, messaging, meeting flows, checkout, or other workflows where a regression would have a large user impact.
 >
@@ -165,11 +161,9 @@
 >
 > Testing should be part of the development process, not only a final step before release. Engineers should receive fast feedback locally, and CI should automatically validate important checks before merging.
 >
-> For larger or higher-risk changes, testing alone is not enough. I also use protection such as feature flags, gradual rollout, production monitoring, and rollback plans.
+> For larger or higher-risk changes, testing alone is not enough. I also use deployment protection such as feature flags, gradual rollout, production monitoring, and rollback plans.
 >
 > One example from Webex was improving release quality through stronger automated coverage. We used Jest for unit testing and Playwright for end-to-end testing to protect critical workflows.
->
-> I also learned from a mistake earlier in my career. During a release under time pressure, I merged a change after local testing but skipped full end-to-end validation. A small issue appeared after deployment that the end-to-end test could have caught. After that, I made sure important new flows were covered before merging and treated missing coverage as an explicit risk.
 >
 > Overall, I see testing as a way to manage risk. Good testing allows teams to move faster because engineers can make changes with confidence.
 
@@ -181,7 +175,7 @@
 
 #### How do you choose between unit, integration, and end-to-end tests?
 
-> I use unit tests for fast feedback on isolated logic, integration tests for important boundaries, and end-to-end tests for a small number of critical user journeys. I want most tests to be fast and stable, while still protecting the flows that matter most to users.
+> I use unit tests for fast feedback on isolated logic, integration tests for important boundaries, and end-to-end tests for critical user journeys. I want most tests to be fast and stable, while still protecting the flows that matter the most to users.
 
 #### How do you test frontend performance?
 
@@ -197,11 +191,11 @@
 
 #### How do you test a large frontend application?
 
-> Test ownership needs to be distributed. Shared components need strong coverage because their blast radius is large. Product teams should own tests for their features, while critical cross-product journeys receive end-to-end coverage. The suite also needs active maintenance so slow or flaky tests do not reduce trust.
+> Test ownership needs to be distributed. Shared components need strong coverage because their blast radius is large. Product teams should own tests for their features, while critical cross-product journeys receive end-to-end coverage. The test suite also needs active maintenance so slow or flaky tests do not reduce trust.
 
 #### What do you do with flaky tests?
 
-> I treat them as engineering defects. A flaky test weakens confidence in the whole suite. I identify whether the cause is shared state, timing, unstable test data, or an environment issue. I fix or quarantine it with clear ownership rather than allowing the team to ignore repeated failures.
+> I treat them as engineering defects. A flaky test weakens confidence in the whole test flow. I identify whether the cause is shared state, timing, unstable test data, or an environment issue. I fix or quarantine it with clear ownership rather than allowing the team to ignore repeated failures.
 
 ### Key points to remember
 
