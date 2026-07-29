@@ -691,10 +691,32 @@ accordion.addEventListener(
                 "aria-expanded",
             ) === "true";
 
-        accordion.querySelectorAll("[data-accordion-trigger]")
-            .forEach((otherTrigger) => {
-               if (otherTrigger !== trigger) {
-               setExpanded(otherTrigger, false);
+         accordion
+           .querySelectorAll(
+             "[data-accordion-trigger]",
+           )
+           .forEach((otherTrigger) => {
+             if (otherTrigger === trigger) {
+               return;
+             }
+         
+             const otherPanelId =
+               otherTrigger.getAttribute(
+                 "aria-controls",
+               );
+         
+             const otherPanel =
+               document.getElementById(
+                 otherPanelId,
+               );
+         
+             otherTrigger.setAttribute(
+               "aria-expanded",
+               "false",
+             );
+         
+             if (otherPanel) {
+               otherPanel.hidden = true;
              }
            });
 
