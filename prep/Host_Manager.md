@@ -26,7 +26,7 @@
 
 > Sure. I have about 14 years of software engineering experience, with more than 10 years focused on frontend engineering and large-scale web applications.
 >
-> I started my career in system integration and embedded software. Those early roles gave me a strong foundation in software fundamentals, performance, reliability, and how large systems work. I later moved into platform and frontend development at Polycom, where I worked on SDKs and cross-platform applications across web, desktop, and mobile.
+> I started my career in system integration and embedded software at Abbott. I later moved into platform and frontend development at Polycom, where I worked on SDKs and cross-platform applications across web, desktop, and mobile.
 >
 > In 2016, I joined Cisco and became part of the Webex web client team. This has been the biggest part of my career. Over the past eight years, I have helped evolve Webex from a basic messaging application into a full collaboration platform used by enterprise customers. My work has covered messaging, meetings, accessibility, security, and, more recently, AI-powered experiences.
 >
