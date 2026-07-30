@@ -942,18 +942,21 @@ function toDateKey(year, month, day) {
 }
 
 function renderCalendar() {
+    // The weekday index of the first day of the visible month: Sunday = 0, Saturday = 6.
     const firstWeekday = new Date(
         visibleYear,
         visibleMonth,
         1,
     ).getDay();
 
+    // The total number of days in the visible month.
     const daysInMonth = new Date(
         visibleYear,
         visibleMonth + 1,
         0,
     ).getDate();
 
+    // A Date object representing the first day of the visible month.
     const visibleDate = new Date(
         visibleYear,
         visibleMonth,
