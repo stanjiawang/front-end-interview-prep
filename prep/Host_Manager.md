@@ -458,7 +458,7 @@ Use the missing end-to-end coverage story. Explain the release pressure, the val
 
 > One area where I have grown significantly is communication and being proactive in technical discussions.
 >
-> When I first joined the Webex team, I was learning a large product, a complex architecture, and new team dynamics. English is not my first language, and at that time I was not always confident speaking up in meetings, especially during design or architecture discussions with product, design, and backend partners.
+> When I first joined the Webex team, I was learning a large product, a complex architecture, and new team dynamics. At that time I was not always confident speaking up in meetings, especially during design or architecture discussions with product, design, and backend partners.
 >
 > I received feedback that my technical work was strong, but I could increase my impact by sharing my perspective earlier and participating more actively in discussions.
 >
