@@ -1918,6 +1918,7 @@ timers.clearAllTimeouts();
 ```js
 class EventEmitter {
   constructor() {
+    // event name -> array of listener functions
     this.events = new Map();
   }
 
@@ -1926,29 +1927,41 @@ class EventEmitter {
       throw new TypeError("fn must be a function");
     }
 
-    const list = this.events.get(name) ?? [];
-    list.push(fn);
-    this.events.set(name, list);
+    let listeners = this.events.get(name);
 
-    return () => this.off(name, fn);
+    // Create a listener array when this event
+    // is registered for the first time.
+    if (!listeners) {
+      listeners = [];
+      this.events.set(name, listeners);
+    }
+
+    listeners.push(fn);
+
+    // Return an unsubscribe function.
+    return () => {
+      return this.off(name, fn);
+    };
   }
 
   off(name, fn) {
-    const list = this.events.get(name);
+    const listeners = this.events.get(name);
 
-    if (!list) {
+    if (!listeners) {
       return false;
     }
 
-    const index = list.indexOf(fn);
+    const index = listeners.indexOf(fn);
 
     if (index === -1) {
       return false;
     }
 
-    list.splice(index, 1);
+    listeners.splice(index, 1);
 
-    if (list.length === 0) {
+    // Remove the event from the Map
+    // when it has no listeners left.
+    if (listeners.length === 0) {
       this.events.delete(name);
     }
 
@@ -1956,8 +1969,15 @@ class EventEmitter {
   }
 
   once(name, fn) {
+    if (typeof fn !== "function") {
+      throw new TypeError("fn must be a function");
+    }
+
     const wrapper = (...args) => {
+      // Remove the wrapper before calling fn,
+      // so it can only run once.
       this.off(name, wrapper);
+
       fn.apply(this, args);
     };
 
@@ -1965,13 +1985,16 @@ class EventEmitter {
   }
 
   emit(name, ...args) {
-    const list = this.events.get(name);
+    const listeners = this.events.get(name);
 
-    if (!list) {
+    if (!listeners) {
       return false;
     }
 
-    for (const fn of [...list]) {
+    // Copy the array so listeners can safely
+    // add or remove listeners during emit.
+
+    for (const fn of [...listeners]) {
       fn.apply(this, args);
     }
 
@@ -1979,15 +2002,24 @@ class EventEmitter {
   }
 
   listenerCount(name) {
-    return this.events.get(name)?.length ?? 0;
+    const listeners = this.events.get(name);
+
+    if (!listeners) {
+      return 0;
+    }
+
+    return listeners.length;
   }
 
   removeAllListeners(name) {
     if (name === undefined) {
+      // Remove every event and listener.
       this.events.clear();
-    } else {
-      this.events.delete(name);
+      return;
     }
+
+    // Remove listeners for one event.
+    this.events.delete(name);
   }
 }
 ```
