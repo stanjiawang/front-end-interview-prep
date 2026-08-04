@@ -46,6 +46,10 @@
    - [Flatten a Nested Array](#flatten-a-nested-array)
    - [Group By](#group-by)
    - [Interview Communication Checklist](#interview-communication-checklist)
+5. [Apple iCloud Web Interview Coding Drills](#apple-icloud-web-interview-coding-drills)
+   - [Flat Array to Tree with React](#apple-drive-tree)
+   - [Autocomplete with Debounce and Race Protection](#apple-autocomplete)
+   - [Promise Concurrency Limit](#apple-promise-concurrency-limit)
 
 ---
 
@@ -2293,3 +2297,325 @@ function groupBy(values, getKey) {
 > Let `n` be the number of input elements. The algorithm visits each element once, so its time complexity is `O(n)`.
 
 > This is the simplest working version. In production, I would additionally consider cancellation, cache limits, cleanup, accessibility, and observability.
+
+---
+
+<a id="apple-icloud-web-interview-coding-drills"></a>
+## 5. Apple iCloud Web Interview Coding Drills
+
+These solutions are intentionally scoped for a 30–40 minute interview coding window. Start with the smallest correct version, explain the complexity, and let the interviewer choose the follow-up.
+
+<a id="apple-drive-tree"></a>
+### 5.1 Flat Array to Tree with React
+
+#### Clarify before coding
+
+> I’ll assume IDs are unique, parent IDs are valid, and the input contains no cycles. Children may appear before their parents.
+
+```jsx
+import { useMemo, useState } from "react";
+
+function buildTree(items) {
+  const byId = new Map();
+
+  // First pass: create every node.
+  for (const item of items) {
+    byId.set(item.id, {
+      ...item,
+      children: [],
+    });
+  }
+
+  const roots = [];
+
+  // Second pass: connect each node to its parent.
+  for (const node of byId.values()) {
+    if (node.parentId == null) {
+      roots.push(node);
+      continue;
+    }
+
+    const parent = byId.get(node.parentId);
+
+    if (!parent) {
+      throw new Error(`Missing parent: ${node.parentId}`);
+    }
+
+    parent.children.push(node);
+  }
+
+  return roots;
+}
+
+function DriveTree({ items }) {
+  const tree = useMemo(
+    () => buildTree(items),
+    [items],
+  );
+
+  const [expanded, setExpanded] = useState(
+    () => new Set(),
+  );
+
+  function toggle(id) {
+    setExpanded((current) => {
+      const next = new Set(current);
+
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+
+      return next;
+    });
+  }
+
+  return (
+    <ul>
+      {tree.map((node) => (
+        <TreeItem
+          key={node.id}
+          node={node}
+          expanded={expanded}
+          onToggle={toggle}
+        />
+      ))}
+    </ul>
+  );
+}
+
+function TreeItem({ node, expanded, onToggle }) {
+  const isFolder = node.type === "folder";
+  const isOpen = expanded.has(node.id);
+
+  return (
+    <li>
+      {isFolder ? (
+        <button
+          type="button"
+          aria-expanded={isOpen}
+          onClick={() => onToggle(node.id)}
+        >
+          {isOpen ? "▾" : "▸"} {node.name}
+        </button>
+      ) : (
+        <span>📄 {node.name}</span>
+      )}
+
+      {isFolder && isOpen && (
+        <ul>
+          {node.children.map((child) => (
+            <TreeItem
+              key={child.id}
+              node={child}
+              expanded={expanded}
+              onToggle={onToggle}
+            />
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+}
+```
+
+- Build time: `O(n)`
+- Build space: `O(n)`
+- Render time: `O(v)`, where `v` is the number of visible nodes
+
+**Spoken answer**
+
+> I use two passes because a child may appear before its parent. The first pass creates every node, and the second pass connects each node to its parent. The map gives constant-time parent lookup on average, so construction is `O(n)` instead of `O(n²)`.
+
+**High-value follow-ups**
+
+- Large tree: normalize by ID, lazy-load folder children, flatten only expanded nodes, and virtualize the visible rows.
+- Cycle detection: DFS with `unvisited`, `visiting`, and `visited`; reaching a `visiting` node means a cycle.
+- Accessibility: start with native list/button semantics; a full ARIA tree also needs roving focus, arrow keys, Home/End, type-ahead, and separate focus from selection.
+
+<a id="apple-autocomplete"></a>
+### 5.2 Autocomplete with Debounce and Race Protection
+
+#### Clarify before coding
+
+> I’ll first make the asynchronous request lifecycle correct. If time permits, I can then add the complete combobox keyboard interaction.
+
+Assume `search(query, signal)` returns a Promise of `{ id, label }` items.
+
+```jsx
+import { useEffect, useState } from "react";
+
+function Autocomplete({ search, onSelect }) {
+  const [query, setQuery] = useState("");
+  const [items, setItems] = useState([]);
+  const [status, setStatus] = useState("idle");
+
+  useEffect(() => {
+    const value = query.trim();
+
+    if (value.length < 2) {
+      setItems([]);
+      setStatus("idle");
+      return;
+    }
+
+    const controller = new AbortController();
+    let ignore = false;
+
+    const timer = setTimeout(async () => {
+      setStatus("loading");
+
+      try {
+        const results = await search(
+          value,
+          controller.signal,
+        );
+
+        if (!ignore) {
+          setItems(results);
+          setStatus("done");
+        }
+      } catch (error) {
+        if (!ignore && error?.name !== "AbortError") {
+          setStatus("error");
+        }
+      }
+    }, 250);
+
+    return () => {
+      ignore = true;
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [query, search]);
+
+  let message = "";
+
+  if (status === "loading") {
+    message = "Searching...";
+  } else if (status === "error") {
+    message = "Search failed.";
+  } else if (status === "done") {
+    message = `${items.length} results`;
+  }
+
+  return (
+    <div>
+      <label htmlFor="file-search">Search files</label>
+
+      <input
+        id="file-search"
+        type="search"
+        value={query}
+        onChange={(event) => {
+          setQuery(event.target.value);
+          setItems([]);
+          setStatus("idle");
+        }}
+      />
+
+      <div role="status">{message}</div>
+
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            <button
+              type="button"
+              onClick={() => onSelect(item)}
+            >
+              {item.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+**Spoken answer**
+
+> The user may search for “a” and then “apple.” If the newer request finishes first but the older request finishes later, the old response must not overwrite the new results. `AbortController` reduces unnecessary work, while the `ignore` flag guarantees correctness by blocking stale updates.
+
+**High-value follow-ups**
+
+- Keyboard support: track `activeIndex`; handle Arrow Up/Down, Enter, and Escape.
+- Full combobox semantics: add `aria-expanded`, `aria-controls`, `aria-activedescendant`, `role="listbox"`, and `role="option"` together with the keyboard contract.
+- `useDeferredValue` may defer rendering, but it does not guarantee fewer API calls; network debounce is still needed.
+- For IME input, avoid searching during composition and react to `compositionstart` / `compositionend`.
+
+<a id="apple-promise-concurrency-limit"></a>
+### 5.3 Promise Concurrency Limit
+
+#### Clarify before coding
+
+> I’ll implement a small worker pool. Each runner repeatedly claims the next unprocessed item and waits for it before taking another one.
+
+```js
+async function mapWithConcurrency(items, limit, worker) {
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new Error("limit must be a positive integer");
+  }
+
+  const results = new Array(items.length);
+  let nextIndex = 0;
+
+  async function runner() {
+    while (true) {
+      const index = nextIndex;
+      nextIndex += 1;
+
+      if (index >= items.length) {
+        return;
+      }
+
+      results[index] = await worker(
+        items[index],
+        index,
+      );
+    }
+  }
+
+  const runnerCount = Math.min(
+    limit,
+    items.length,
+  );
+
+  await Promise.all(
+    Array.from(
+      { length: runnerCount },
+      () => runner(),
+    ),
+  );
+
+  return results;
+}
+```
+
+Usage:
+
+```js
+const uploadedFiles = await mapWithConcurrency(
+  files,
+  3,
+  (file) => uploadFile(file),
+);
+```
+
+- Total work: `O(n)` plus the work performed by `worker`
+- Extra space: `O(n)` for the ordered results
+- Maximum in-flight operations: `limit`
+
+**Spoken answer**
+
+> I create at most `limit` runners. Each runner waits for its current operation before claiming another item, so in-flight work never exceeds the limit. Tasks may finish out of order, but each result is stored at its original index, so the returned array preserves input order.
+
+The core version is fail-fast: one rejection rejects `Promise.all`, but it does not automatically cancel tasks that already started.
+
+**High-value follow-ups**
+
+- Independent uploads: catch inside each worker and return fulfilled/rejected result objects so one file does not fail the batch.
+- Cancellation: pass an `AbortSignal`; cancellation is cooperative, so both the worker and underlying API must support it.
+- Retry only transient failures, use exponential backoff with jitter, and verify that the operation is idempotent.
+- To control concurrency, accept items or task functions—not an array of already-started Promises.
